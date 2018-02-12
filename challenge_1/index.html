@@ -5,6 +5,7 @@
 <body>
 	<button id='resetButton'>New Game!</button>
 	<div id="turnText">Player 1's turn</div>
+	<div id="previous"></div>
 	<table id="table" width=200px height=200px table-layout="fixed" border=1;>
 	  <tr>
 	      <td width="33%" height="33%" align=center id="first"></td>
@@ -21,6 +22,17 @@
 	      <td width="33%" height="33%" align=center id="eigth"></td>
 	      <td width="33%" height="33%" align=center id="ninth"></td>
       </tr>
+	</table>
+
+	<table width=150px heigth= 125px>
+		<tr>
+			<td width="50%" align=center>Player 1</td>
+			<td width="50%" align=center>Player 2</td>
+		</tr>
+		<tr>
+			<td width="50%" align=center id="winCounterOne">0 wins</td>
+			<td width="50%" align=center id="winCounterTwo">0 wins</td>
+		</tr>
 	</table>
 	<script src='app.js'></script>
 </body>
