@@ -3,6 +3,9 @@
 	<h1>Tic Tac Toe</h1>
 </head>
 <body>
+	<form id="names"><input id="userOne" placeholder="Player One"><input id="userTwo" placeholder="Player Two"><button id='newName'>Submit</button></form>
+	<div id="firstPlayer"></div>
+	<div id="secondPlayer"></div>
 	<button id='resetButton'>New Game!</button>
 	<div id="turnText">Player 1's turn</div>
 	<div id="previous"></div>
@@ -26,8 +29,8 @@
 
 	<table width=150px heigth= 125px>
 		<tr>
-			<td width="50%" align=center>Player 1</td>
-			<td width="50%" align=center>Player 2</td>
+			<td width="50%" align=center id="scoreOne">Player 1</td>
+			<td width="50%" align=center id="scoreTwo">Player 2</td>
 		</tr>
 		<tr>
 			<td width="50%" align=center id="winCounterOne">0 wins</td>
