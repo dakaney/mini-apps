@@ -4,7 +4,10 @@ function post (e) {
   e.preventDefault();
   let message = textarea.value;
   let callback = function (data) {
-    body.textContent = data;
+  	$('#body').empty();
+    data.forEach(item => {
+      $('#body').append('<div>' + item + '</div>');
+    })
   }
   $.ajax({
   type: "POST",
@@ -13,8 +16,7 @@ function post (e) {
   dataType: "json",
   data: message,
   success: function(data){
-  	callback(JSON.stringify(data));
+  	callback(data);
   }
   })
 }
-
