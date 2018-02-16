@@ -13,7 +13,7 @@ class App extends React.Component {
       allScores: [], //creates an array to hold tuples
       currentScores:[], //creates tuple of current set's scores
       scores: [], //this is for updating display of scores
-      results: [] // creates an array to be displayed as total scores
+      results: [[],[],[],[],[],[],[],[],[],[]] // creates an array to be displayed as total scores
 		}
 	}
 
@@ -66,31 +66,64 @@ class App extends React.Component {
 	}
 
 	calculateScore(scoresArray) {
-		this.state.results = []; // reset scores so it does not duplicate
+		this.state.results = [[],[],[],[],[],[],[],[],[],[]]; // reset scores so it does not duplicate
 		this.state.totalScore = 0;
+
+		//attempt at using recursion
+		// function recurse (currentScore, i) {
+  //     if (i === 0) {
+  //     	if(currentScore[i][0] === 10){
+          
+  //     	}
+
+  //     }
+		// }
     for (let i = 0; i < scoresArray.length && i < 10; i++) {
     	if(scoresArray[i][0] === 10){ // if first bowl was a strike
         if(scoresArray[i+1]){
         	if(scoresArray[i+1][0] && scoresArray[i+1][1] === 0){
         		if(i === 0){
 	        		if(scoresArray[i+1][0] === 10){
-	        			let results = 30;
 	        			this.state.results.push(30);
 	        			this.state.totalScore += 30;
+	        		} else {
+	        			let results = 10 + scoresArray[i+1][0] + scoresArray[i+1][1];
+	        			this.state.results.push(results);
+	        			this.state.totalScore += 30;
 	        		}
-	            let results = 10 + scoresArray[i+1][0] + scoresArray[i+1][1];
-	            this.state.results.push(results);
-	            this.state.totalScore += results;
         		} else {
-        		  let results = 10 + scoresArray[i+1][0] + scoresArray[i+1][1] + this.state.results[i-1];
-	            this.state.results.push(results);
-	            this.state.totalScore += results;
+        			if(scoresArray[i+1][0] === 10){
+        				let results = 30 + this.state.results[i-1];
+	        			this.state.results.push(results);
+	        			this.state.totalScore += 30;
+        			} else {
+	        		  let results = 10 + scoresArray[i+1][0] + scoresArray[i+1][1] + this.state.results[i-1];
+		            this.state.results.push(results);
+		            this.state.totalScore += results;
+        			}
         		}
         	}
         }
-      } 
+      } else if (scoresArray[i][0] + scoresArray[i][1] === 10){
+      	if(scoresArray[i+1]){
+      		if(scoresArray[i+1][0] !== undefined) {
+      			if(i === 0){
+      				let results = 10 + scoresArray[i+1][0];
+      				this.state.results.push(results);
+      				this.state.totalScore += results;
+      			} else {
+      				let results = 10 + scoresArray[i+1][0] + this.state.results[i-1];
+      				this.state.results.push(results);
+      				this.state.totalScore += results; 			
+      			}
+      		}
+      	}
+      } else {
+
+      }
     }
-    console.log(this.state.results);
+    console.log(this.state.allScores);
+    // recurse(scoresArray[0], 0);
   }
 
 	//if first bowl is a strike

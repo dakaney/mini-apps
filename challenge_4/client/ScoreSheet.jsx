@@ -3,6 +3,7 @@ import ScoreSquare from './ScoreSquare';
 
 const ScoreSheet = (props) => {
 	let scores = props.scores.slice(0);
+	let results = props.results.slice(0);
 	let firstRowArray =[];
 	let secondRowArray = [];
 	for (let i = 0; i < 30; i++){
@@ -18,7 +19,8 @@ const ScoreSheet = (props) => {
 		}
 	}
 	for(let j = 0; j < 10; j++) {
-		secondRowArray.push(<ScoreSquare key={j} row={1} id={j}/>)
+		secondRowArray.push(<ScoreSquare key={j} results={results[0][0]} row={1} id={j}/>)
+		results.splice(0, 1);
 	}
 	return (
 		<tbody>
