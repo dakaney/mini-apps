@@ -1,0 +1,27 @@
+.keys {
+	border: 1px solid black;
+	height: 50px;
+    width: 50px;
+    text-align: center;
+}
+
+.scores {
+	border: 1px solid black;
+/*	height: 50px;
+    width: 20%;*/
+    text-align: center;
+}
+
+.scoresSquares {
+	border: 1px solid black;
+	/*height: 15px;*/
+    width: 15px;
+    text-align: center;
+}
+
+.scoreTable {
+	border: 1px solid black;
+	height: 75px;
+    width: 800px;
+    text-align: center;
+}
